@@ -1,0 +1,38 @@
+name: Build Docker with Bake
+
+env:
+  PROJECT_ID: gb-poc-373711
+  LOCATION: europe-west1
+  REPO_NAME: internal-images
+  IMAGE_TAG_VERSION_APP: '0.1.0'
+  IMAGE_TAG_VERSION_INFRA: '0.1.0'
+
+  WORKLOAD_IDENTITY_PROVIDER: 'projects/975119474255/locations/global/workloadIdentityPools/gb-github-actions-ci-cd-pool/providers/gb-github-actions-ci-cd-provider'
+  SA_CI_CD_EMAIL: 'sa-dataflow-dev@gb-poc-373711.iam.gserviceaccount.com'
+
+on:
+  push:
+
+jobs:
+  bake:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 'Google auth'
+        id: 'auth'
+        uses: 'google-github-actions/auth@v1'
+        with:
+          workload_identity_provider: '${{ env.WORKLOAD_IDENTITY_PROVIDER }}'
+          service_account: '${{ env.SA_CI_CD_EMAIL }}'
+      #  - name: Login to DockerHub
+      #        uses: docker/login-action@v3
+      #        with:
+      #          username: ${{ vars.DOCKERHUB_USERNAME }}
+      #          password: ${{ secrets.DOCKERHUB_TOKEN }}
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+      - name: Build and push
+        uses: docker/bake-action@v6
+        with:
+          push: true
+          set: |
+            *.tags=user/app:latest

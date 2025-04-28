@@ -12,7 +12,7 @@
 __pycache__
 .DS_Store
 /build-and-publish-images-artifact-registry.yaml
-/docker-bake.hcl
-/docker-bake-tests.hcl
+/docker-bake-app-and-infra.hcl
+/docker-bake-lint-and-test.hcl
 /docker-bake-matrix.hcl
 /vars.hcl

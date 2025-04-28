@@ -1,9 +1,6 @@
-# docker-bake-gcp
+# docker-bake-playground
 
-This project shows how to use Docker Bake with several use cases and how to build and publish the images
-in Google Cloud Artifact Registry.
-
-An example of CI CD pipeline is also showed with Cloud Build.
+A curated collection of concrete, practical, and reusable examples for mastering Docker Bake.
 
 
 ## Build the images with Docker Bake locally

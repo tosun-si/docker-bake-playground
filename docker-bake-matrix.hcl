@@ -1,13 +1,13 @@
-group "validate" {
-  targets = ["lint", "test"]
-}
-
-target "lint" {
-  target = "lint"
-  output = ["type=cacheonly"]
-}
-
-target "test" {
-  target = "test"
-  output = ["type=cacheonly"]
+target "default" {
+  matrix = {
+    mode = ["release", "debug"]
+  }
+  args = {
+    BUILD_TAGS = mode
+  }
+  tags = [
+      mode == "release" ? "bakeme:latest" : "bakeme:dev"
+  ]
+  name   = "image-${mode}"
+  target = "image"
 }

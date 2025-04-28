@@ -9,7 +9,7 @@ steps:
     script: |
       echo "Running Docker Buildx Bake..."
       
-      docker buildx bake -f vars.hcl -f docker-bake.hcl --push
+      docker buildx bake -f vars.hcl -f docker-bake-app-and-infra.hcl --push
     env:
       - 'PROJECT_ID=$PROJECT_ID'
       - 'LOCATION=$LOCATION'

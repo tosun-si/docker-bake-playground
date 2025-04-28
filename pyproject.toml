@@ -1,0 +1,9 @@
+[project]
+name = "python-app-docker"
+version = "0.1.0"
+description = "Example of a Python app with linter and tests used with Docker Bake"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "pydantic==2.11.3"
+]
