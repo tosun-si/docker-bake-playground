@@ -11,7 +11,7 @@ env:
   SA_CI_CD_EMAIL: 'sa-dataflow-dev@gb-poc-373711.iam.gserviceaccount.com'
 
 on:
-  push:
+  workflow_dispatch:
 
 jobs:
   bake:
@@ -40,3 +40,6 @@ jobs:
           files: docker-bake-lint-and-test.hcl
           targets: validate
           push: true
+          set: |
+            test.tags=${{ env.LOCATION }}-docker.pkg.dev/${{ env.PROJECT_ID }}/${{ env.REPO_NAME }}/test:${{ env.IMAGE_TAG_VERSION_APP }}
+            lint.tags=${{ env.LOCATION }}-docker.pkg.dev/${{ env.PROJECT_ID }}/${{ env.REPO_NAME }}/lint:${{ env.IMAGE_TAG_VERSION_INFRA }}

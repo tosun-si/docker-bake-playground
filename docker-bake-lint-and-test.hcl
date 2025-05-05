@@ -3,15 +3,15 @@ group "validate" {
 }
 
 target "lint" {
-  # target     = "lint"
-  context    = "."
-  dockerfile = "linter/Dockerfile"
-  output = ["type=cacheonly"]
+  contexts = {
+    baseapp = "target:python_packages"
+  }
+  dockerfile = "images/python_linter/Dockerfile"
+  tags = ["python-linter:latest"]
 }
 
 target "test" {
-  # target     = "test"
   context    = "."
-  dockerfile = "linter/Dockerfile"
-  output = ["type=cacheonly"]
+  dockerfile = "images/python_tests/Dockerfile"
+  tags = ["python-tests:latest"]
 }

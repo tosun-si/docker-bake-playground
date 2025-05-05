@@ -4,6 +4,23 @@ version = "0.1.0"
 description = "Example of a Python app with linter and tests used with Docker Bake"
 readme = "README.md"
 requires-python = ">=3.11"
+
+#test = [
+#    "pytest==8.3.5",
+#    "pytest-cov==6.1.1"
+#]
+#lint = [
+#    "pylint==3.3.6"
+#]
+
 dependencies = [
-    "pydantic==2.11.3"
+    "pytest==8.3.5",
+    "pytest-cov==6.1.1",
+    "pylint==3.3.6"
 ]
+
+[tool.pylint.'MAIN']
+ignore = ["tests"]
+
+[tool.pytest.ini_options]
+addopts = "--cov=python --cov-report=term --junitxml=reports/test-results.xml"

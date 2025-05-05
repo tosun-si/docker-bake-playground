@@ -12,7 +12,7 @@ docker buildx bake -f vars.hcl -f docker-bake.hcl
 ## Build and publish the images with Docker Bake locally
 
 ```bash
-docker buildx bake -f vars.hcl -f docker-bake.hcl --push
+docker buildx bake -f vars.hcl -f docker-bake.hcl docker-bake-linter.hcl --push
 ```
 
 ## Printing the Bake file with the --print flag shows the interpolated value in the resolved build configuration.
@@ -36,7 +36,7 @@ docker buildx build \
 ## Build the images for linter and tests
 
 ```bash
-docker buildx bake -f docker-bake-tests.hcl validate
+docker buildx bake -f docker-bake-lint-and-test.hcl validate
 ```
 
 ## Build and publish the images with Docker Bake via Cloud Build

@@ -2,7 +2,7 @@ from typing import List
 
 import pytest
 
-from common_lib.validator import Validator, ValidatorException
+from python_app.validator import Validator, ValidatorException
 
 FIRST_NAME_ERROR_MESSAGE = 'First name should not be empty.'
 LAST_NAME_ERROR_MESSAGE = 'Last name should not be empty.'
@@ -22,9 +22,9 @@ class TestValidator:
         # When.
         result_error_messages: List[str] = (
             Validator(person)
-                .validate(lambda p: p['first_name'], lambda f_name: f_name != '', FIRST_NAME_ERROR_MESSAGE)
-                .validate(lambda p: p['last_name'], lambda l_name: l_name != '', LAST_NAME_ERROR_MESSAGE)
-                .get_error_message()
+            .validate(lambda p: p['first_name'], lambda f_name: f_name != '', FIRST_NAME_ERROR_MESSAGE)
+            .validate(lambda p: p['last_name'], lambda l_name: l_name != '', LAST_NAME_ERROR_MESSAGE)
+            .get_error_message()
         )
 
         # Then.
@@ -51,9 +51,9 @@ class TestValidator:
         # When.
         result_error_messages: List[str] = (
             Validator(person)
-                .validate(lambda p: p['first_name'], lambda f_name: f_name != '', FIRST_NAME_ERROR_MESSAGE)
-                .validate(lambda p: p['last_name'], lambda l_name: l_name != '', LAST_NAME_ERROR_MESSAGE)
-                .get_error_message()
+            .validate(lambda p: p['first_name'], lambda f_name: f_name != '', FIRST_NAME_ERROR_MESSAGE)
+            .validate(lambda p: p['last_name'], lambda l_name: l_name != '', LAST_NAME_ERROR_MESSAGE)
+            .get_error_message()
         )
 
         # Then.
