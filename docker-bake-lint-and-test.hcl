@@ -5,11 +5,11 @@ group "validate" {
 target "lint" {
   context    = "."
   dockerfile = "images/python_linter/Dockerfile"
-  tags = ["python-linter:latest"]
+  tags = ["${REPO_URL}/python-linter:latest"]
 }
 
 target "test" {
   context    = "."
   dockerfile = "images/python_tests/Dockerfile"
-  tags = ["python-tests:latest"]
+  tags = ["${REPO_URL}/python-tests:latest"]
 }
