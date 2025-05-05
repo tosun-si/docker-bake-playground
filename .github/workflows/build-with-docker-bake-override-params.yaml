@@ -1,4 +1,4 @@
-name: Build Docker with Bake using tags
+name: Build Docker with Bake override params
 
 env:
   PROJECT_ID: gb-poc-373711
@@ -16,6 +16,11 @@ on:
 jobs:
   bake:
     runs-on: ubuntu-latest
+
+    permissions:
+      contents: 'read'
+      id-token: 'write'
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v3

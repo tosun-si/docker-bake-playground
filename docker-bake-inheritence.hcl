@@ -4,7 +4,7 @@ group "default" {
 
 target "_common" {
   context = "."
-  platforms = ["linux/amd64", "linux/arm64"],
+  platforms = ["linux/amd64", "linux/arm64"]
   attest = [
     "type=provenance,mode=max",
     "type=sbom"
@@ -13,12 +13,12 @@ target "_common" {
 
 target "app" {
   inherits = ["_common"]
-  dockerfile = "app/Dockerfile"
+  dockerfile = "images/app/Dockerfile"
   tags = ["${REPO_URL}/app_bake:${IMAGE_TAG_VERSION_APP}"]
 }
 
 target "infra" {
   inherits = ["_common"]
-  dockerfile = "infra/Dockerfile"
+  dockerfile = "images/infra/Dockerfile"
   tags = ["${REPO_URL}/infra_bake:${IMAGE_TAG_VERSION_INFRA}"]
 }
