@@ -3,9 +3,7 @@ group "validate" {
 }
 
 target "lint" {
-  contexts = {
-    baseapp = "target:python_packages"
-  }
+  context    = "."
   dockerfile = "images/python_linter/Dockerfile"
   tags = ["python-linter:latest"]
 }

@@ -4,7 +4,7 @@ group "default" {
 
 target "app" {
   context    = "."
-  dockerfile = "app/Dockerfile"
+  dockerfile = "images/app/Dockerfile"
   platforms = ["linux/amd64", "linux/arm64"]
   tags = ["${REPO_URL}/app_bake:${IMAGE_TAG_VERSION_APP}"]
   attest = [
@@ -15,7 +15,7 @@ target "app" {
 
 target "infra" {
   context    = "."
-  dockerfile = "infra/Dockerfile"
+  dockerfile = "images/infra/Dockerfile"
   platforms = ["linux/amd64", "linux/arm64"]
   tags = ["${REPO_URL}/infra_bake:${IMAGE_TAG_VERSION_INFRA}"]
   attest = [
