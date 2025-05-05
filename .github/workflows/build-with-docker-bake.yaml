@@ -8,7 +8,7 @@ env:
   IMAGE_TAG_VERSION_INFRA: '0.1.0'
 
   WORKLOAD_IDENTITY_PROVIDER: 'projects/975119474255/locations/global/workloadIdentityPools/gb-github-actions-ci-cd-pool/providers/gb-github-actions-ci-cd-provider'
-  SA_CI_CD_EMAIL: 'sa-dataflow-dev@gb-poc-373711.iam.gserviceaccount.com'
+  SA_CI_CD_EMAIL: 'sa-docker-bake@gb-poc-373711.iam.gserviceaccount.com'
 
 on:
   push:
