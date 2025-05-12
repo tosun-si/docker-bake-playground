@@ -1,0 +1,33 @@
+image: docker:28.1.1
+
+services:
+  - name: docker:dind
+    command: [ "--registry-mirror=https://mirror.gcr.io" ]  # Optional, speeds up pulls
+    alias: docker
+
+variables:
+  DOCKER_TLS_CERTDIR: ""  # Needed to disable TLS with DinD
+
+  PROJECT_ID: gb-poc-373711
+  LOCATION: europe-west1
+  REPO_NAME: internal-images
+  IMAGE_TAG_VERSION_APP: "0.1.0"
+  IMAGE_TAG_VERSION_INFRA: "0.1.0"
+
+before_script:
+  - apk add --no-cache curl bash
+  - mkdir -p /usr/libexec/docker/cli-plugins
+  - curl -sSL https://github.com/docker/buildx/releases/download/v0.23.0/buildx-v0.23.0.linux-amd64 -o /usr/libexec/docker/cli-plugins/docker-buildx
+  - chmod +x /usr/libexec/docker/cli-plugins/docker-buildx
+  - docker buildx version
+  - docker buildx create --use
+  - docker login -u _json_key --password-stdin https://$LOCATION-docker.pkg.dev < "$GOOGLE_APPLICATION_CREDENTIALS"
+
+build:
+  stage: build
+  script:
+    - |
+      docker buildx bake \
+        -f vars.hcl \
+        -f docker-bake-app-and-infra.hcl \
+        --push
