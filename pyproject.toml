@@ -5,14 +5,6 @@ description = "Example of a Python app with linter and tests used with Docker Ba
 readme = "README.md"
 requires-python = ">=3.11"
 
-#test = [
-#    "pytest==8.3.5",
-#    "pytest-cov==6.1.1"
-#]
-#lint = [
-#    "pylint==3.3.6"
-#]
-
 dependencies = [
     "pytest==8.3.5",
     "pytest-cov==6.1.1",

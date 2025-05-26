@@ -15,5 +15,5 @@ __pycache__
 /build-and-publish-images-artifact-registry.yaml
 /docker-bake-app-and-infra.hcl
 /docker-bake-lint-and-test.hcl
-/docker-bake-matrix.hcl
+/docker-bake-matrix-items.hcl
 /vars.hcl

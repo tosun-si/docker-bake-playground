@@ -1,0 +1,35 @@
+services:
+  app:
+    image: app-bake-example:latest
+    build:
+      context: .
+      dockerfile: images/app/Dockerfile
+      args:
+        PROJECT_ID: gb-poc-373711
+        LOCATION: europe-west1
+        REPO_NAME: internal-images
+        IMAGE_TAG_VERSION_APP: 0.1.0
+        IMAGE_TAG_VERSION_INFRA: 0.1.0
+      x-bake:
+        tags:
+          - ${LOCATION}-docker.pkg.dev/${PROJECT_ID}/${REPO_NAME}/app_bake:${IMAGE_TAG_VERSION_APP}
+        platforms:
+          - linux/amd64
+          - linux/arm64
+
+  infra:
+    image: infra-bake-example:latest
+    build:
+      dockerfile: images/infra/Dockerfile
+      args:
+        PROJECT_ID: gb-poc-373711
+        LOCATION: europe-west1
+        REPO_NAME: internal-images
+        IMAGE_TAG_VERSION_APP: 0.1.0
+        IMAGE_TAG_VERSION_INFRA: 0.1.0
+      x-bake:
+        tags:
+          - ${LOCATION}-docker.pkg.dev/${PROJECT_ID}/${REPO_NAME}/infra_bake:${IMAGE_TAG_VERSION_INFRA}
+        platforms:
+          - linux/amd64
+          - linux/arm64
