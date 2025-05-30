@@ -29,5 +29,6 @@ build:
     - |
       docker buildx bake \
         -f vars.hcl \
-        -f docker-bake-app-and-infra-cache.hcl \
+        -f docker-bake-lint-and-test-cache.hcl \
+        validate \
         --push
