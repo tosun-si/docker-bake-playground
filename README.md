@@ -33,16 +33,22 @@ docker buildx bake -f vars.hcl -f docker-bake-app-and-infra.hcl -f docker-bake-l
 docker buildx bake -f vars.hcl -f docker-bake-app-and-infra.hcl -f docker-bake-lint-and-test.hcl default validate --print
 ```
 
-## Build Bake file with inheritence
+## Build Bake file with inheritance
 
 ```bash
 docker buildx bake -f vars.hcl -f docker-bake-inheritence.hcl
 ```
 
-## Build Bake file with inheritence
+## Build Bake file with matrix items
 
 ```bash
-docker buildx bake -f vars.hcl -f docker-bake-matrix.hcl app
+docker buildx bake -f vars.hcl -f docker-bake-matrix-items.hcl app
+```
+
+## Build Bake file with matrix variants
+
+```bash
+docker buildx bake -f vars.hcl -f docker-bake-matrix-variants.hcl app
 ```
 
 ## Docker buildx build command with attestations
