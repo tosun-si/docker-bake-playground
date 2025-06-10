@@ -45,3 +45,6 @@ jobs:
           files: vars.hcl,docker-bake-app-and-infra.hcl
           targets: default
           push: true
+          set: |
+            *.cache-from=type=gha
+            *.cache-to=type=gha,mode=max

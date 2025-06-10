@@ -48,3 +48,5 @@ jobs:
           set: |
             test.tags=${{ env.LOCATION }}-docker.pkg.dev/${{ env.PROJECT_ID }}/${{ env.REPO_NAME }}/test_override:${{ env.IMAGE_TAG_VERSION_APP }}
             lint.tags=${{ env.LOCATION }}-docker.pkg.dev/${{ env.PROJECT_ID }}/${{ env.REPO_NAME }}/lint_override:${{ env.IMAGE_TAG_VERSION_INFRA }}
+            *.cache-from=type=gha
+            *.cache-to=type=gha,mode=max
