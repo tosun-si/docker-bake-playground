@@ -42,9 +42,9 @@ jobs:
       - name: Build and push images with Docker Bake
         uses: docker/bake-action@v6
         with:
-          files: docker-bake-lint-and-test.hcl
+          files: vars.hcl,docker-bake-lint-and-test.hcl
           targets: validate
           push: true
           set: |
-            test.tags=${{ env.LOCATION }}-docker.pkg.dev/${{ env.PROJECT_ID }}/${{ env.REPO_NAME }}/test:${{ env.IMAGE_TAG_VERSION_APP }}
-            lint.tags=${{ env.LOCATION }}-docker.pkg.dev/${{ env.PROJECT_ID }}/${{ env.REPO_NAME }}/lint:${{ env.IMAGE_TAG_VERSION_INFRA }}
+            test.tags=${{ env.LOCATION }}-docker.pkg.dev/${{ env.PROJECT_ID }}/${{ env.REPO_NAME }}/test_override:${{ env.IMAGE_TAG_VERSION_APP }}
+            lint.tags=${{ env.LOCATION }}-docker.pkg.dev/${{ env.PROJECT_ID }}/${{ env.REPO_NAME }}/lint_override:${{ env.IMAGE_TAG_VERSION_INFRA }}

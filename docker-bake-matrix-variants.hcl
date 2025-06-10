@@ -15,7 +15,7 @@ target "alpine_apps" {
   name = "app-${variant}-${replace(version, ".", "-")}"
   matrix = {
     variant = ["alpine"]
-    version = ["3.17", "3.21", "3.22"]
+    version = ["3.17", "3.21"]
   }
   dockerfile = "images/app-matrix/${variant}-${replace(version, ".", "-")}/Dockerfile"
   tags = ["myapp:${variant}-${version}"]

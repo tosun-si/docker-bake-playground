@@ -1,0 +1,12 @@
+services:
+  lint:
+    image: python-linter:latest
+    build:
+      context: .
+      dockerfile: images/python_linter/Dockerfile
+
+  tests:
+    image: python-tests:latest
+    build:
+      context: .
+      dockerfile: images/python_tests/Dockerfile

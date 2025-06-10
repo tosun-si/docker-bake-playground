@@ -1,0 +1,13 @@
+steps:
+  - name: 'gcr.io/cloud-builders/docker'
+    script: |
+      echo "Setting up Docker Buildx..."
+      
+      docker buildx create --use
+      docker buildx bake -f vars.hcl -f docker-bake-lint-and-test-cache.hcl --push
+    env:
+      - 'PROJECT_ID=$PROJECT_ID'
+      - 'LOCATION=$LOCATION'
+      - 'REPO_NAME=$_REPO_NAME'
+      - 'IMAGE_TAG_VERSION_APP=$_IMAGE_TAG_VERSION_APP'
+      - 'IMAGE_TAG_VERSION_INFRA=$_IMAGE_TAG_VERSION_INFRA'
