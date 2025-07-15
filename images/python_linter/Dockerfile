@@ -1,23 +1,24 @@
-FROM python:3.11-slim AS builder
-
-RUN pip install uv
+FROM ghcr.io/astral-sh/uv:python3.11-bookworm-slim AS builder
 
 WORKDIR /app
 
+ENV UV_COMPILE_BYTECODE=1 \
+    UV_LINK_MODE=copy
+
 COPY pyproject.toml uv.lock ./
 
-RUN mkdir -p /app/python_packages && uv pip install -r pyproject.toml --target=/app/python_packages
+RUN --mount=type=cache,target=/root/.cache/uv \
+    uv sync --locked
+
+COPY . /app
 
 FROM python:3.11-slim
 
 WORKDIR /app
 
-COPY --from=builder /app/python_packages /app/python_packages
+COPY --from=builder /app /app
 
-ENV PATH="/app/python_packages/bin:$PATH" \
-    PYTHONPATH="/app/python_packages:$PYTHONPATH"
-
-COPY python_app/ ./python_app
+ENV PATH="/app/.venv/bin:$PATH"
 
 ENTRYPOINT ["pylint"]
 CMD ["python_app", "--ignore=tests", "--output-format=colorized"]
