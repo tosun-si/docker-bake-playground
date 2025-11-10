@@ -54,7 +54,7 @@ docker buildx bake -f vars.hcl -f docker-bake-inheritence.hcl
 ## Build Bake file with matrix variants
 
 ```bash
-docker buildx bake -f vars.hcl -f docker-bake-matrix-variants.hcl app
+docker buildx bake -f vars.hcl -f docker-bake-matrix-variants.hcl
 ```
 
 ## Build Bake file with matrix items
