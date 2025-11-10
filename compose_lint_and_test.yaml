@@ -1,12 +1,12 @@
 services:
   lint:
-    image: python-linter:latest
+    image: europe-west1-docker.pkg.dev/gb-poc-373711/internal-images/python_linter:latest
     build:
       context: .
       dockerfile: images/python_linter/Dockerfile
 
   tests:
-    image: python-tests:latest
+    image: europe-west1-docker.pkg.dev/gb-poc-373711/internal-images/python-tests:latest
     build:
       context: .
       dockerfile: images/python_tests/Dockerfile

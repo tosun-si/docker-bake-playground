@@ -15,4 +15,4 @@ dependencies = [
 ignore = ["tests"]
 
 [tool.pytest.ini_options]
-addopts = "--cov=python --cov-report=term --junitxml=reports/test-results.xml"
+addopts = "--cov=python_app --cov-report=term --junitxml=reports/test-results.xml"
