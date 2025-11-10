@@ -6,7 +6,7 @@ set -u
 
 variants=("alpine" "bullseye" "bookworm")
 declare -A versions
-versions[alpine]="3.17 3.21 3.22"
+versions[alpine]="3.17 3.21"
 versions[bullseye]="11.7 11.8"
 versions[bookworm]="12.2 12.5"
 
@@ -14,6 +14,10 @@ for variant in "${variants[@]}"; do
   for version in ${versions[$variant]}; do
     dir="images/app-matrix/${variant}-${version//./-}"
     tag="myapp:${variant}-${version}"
+
+    echo "Version: $version"
+    echo "Dir: $dir"
+    echo "Tag: $tag"
 
     docker buildx build \
       --file "$dir/Dockerfile" \
