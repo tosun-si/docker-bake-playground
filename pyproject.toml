@@ -6,9 +6,9 @@ readme = "README.md"
 requires-python = ">=3.11"
 
 dependencies = [
-    "pytest==8.3.5",
-    "pytest-cov==6.1.1",
-    "pylint==3.3.6"
+    "pytest==9.0.0",
+    "pytest-cov==7.0.0",
+    "ruff==0.14.4"
 ]
 
 [tool.pylint.'MAIN']

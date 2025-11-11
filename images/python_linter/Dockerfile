@@ -22,5 +22,5 @@ COPY --from=builder $WORKDIR $WORKDIR
 
 ENV PATH="$WORKDIR/.venv/bin:$PATH"
 
-ENTRYPOINT ["pylint"]
-CMD ["python_app", "--ignore=tests", "--output-format=colorized"]
+ENTRYPOINT ["ruff"]
+CMD ["check", "python_app", "--exclude", "tests", "--output-format=concise", "--color=always"]
