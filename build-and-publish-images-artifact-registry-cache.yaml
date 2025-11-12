@@ -4,7 +4,7 @@ steps:
       echo "Setting up Docker Buildx..."
       
       docker buildx create --use
-      docker buildx bake -f vars.hcl -f docker-bake-lint-and-test-cache.hcl --push
+      docker buildx bake -f vars.hcl -f docker-bake-lint-and-test-cache.hcl validate --push
     env:
       - 'PROJECT_ID=$PROJECT_ID'
       - 'LOCATION=$LOCATION'
