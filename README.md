@@ -105,7 +105,7 @@ docker build \
 gcloud builds submit \
     --project=$PROJECT_ID \
     --region=$LOCATION \
-    --config build-and-publish-images-artifact-registry.yaml \
+    --config build-and-publish-images-artifact-registry-cache.yaml \
     --substitutions _REPO_NAME="$REPO_NAME",_IMAGE_TAG_VERSION_APP="$IMAGE_TAG_VERSION_APP",_IMAGE_TAG_VERSION_INFRA="$IMAGE_TAG_VERSION_INFRA" \
     --verbosity="debug" .
 ```
