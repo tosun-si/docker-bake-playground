@@ -1,0 +1,5 @@
+{
+  "name": "docker-bake",
+  "sdk": "python",
+  "source": "src"
+}
