@@ -96,7 +96,7 @@ class DockerBake:
         """
         return await (
             dag.container()
-            .from_("ghcr.io/aquasecurity/trivy:0.58.0")
+            .from_("ghcr.io/aquasecurity/trivy:0.70.0")
             .with_unix_socket("/var/run/docker.sock", docker_socket)
             .with_exec([
                 "image",

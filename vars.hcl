@@ -12,21 +12,21 @@ variable "LOCATION" {
 variable "REPO_NAME" {
   validation {
     condition     = REPO_NAME != ""
-    error_message = "The variable 'PROJECT_ID' must not be empty."
+    error_message = "The variable 'REPO_NAME' must not be empty."
   }
 }
 
 variable "IMAGE_TAG_VERSION_APP" {
   validation {
     condition     = IMAGE_TAG_VERSION_APP != ""
-    error_message = "The variable 'PROJECT_ID' must not be empty."
+    error_message = "The variable 'IMAGE_TAG_VERSION_APP' must not be empty."
   }
 }
 
 variable "IMAGE_TAG_VERSION_INFRA" {
   validation {
     condition     = IMAGE_TAG_VERSION_INFRA != ""
-    error_message = "The variable 'PROJECT_ID' must not be empty."
+    error_message = "The variable 'IMAGE_TAG_VERSION_INFRA' must not be empty."
   }
 }
 

@@ -89,7 +89,7 @@ docker-bake-playground/
 | `docker-bake-lint-and-test-cache.hcl` | Same with registry cache |
 | `docker-bake-scan-pass.hcl` | Alpine image that passes Trivy scan |
 | `docker-bake-dagger-base.hcl` | Base image for Dagger pipelines |
-| `docker-bake-inheritence.hcl` | Inheritance examples |
+| `docker-bake-inheritance.hcl` | Inheritance examples |
 | `docker-bake-matrix-variants.hcl` | Matrix variant examples |
 
 ## Dagger Module
