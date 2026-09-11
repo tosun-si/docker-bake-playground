@@ -472,6 +472,8 @@ The deeper point — and the one I keep coming back to in conference talks — i
 
 ### Talks and resources
 
+- Talk recording (French) — [Docker Bake at DevLille](https://www.youtube.com/watch?v=NB7L3FNXcLs&t=5s)
+- Talk recording (French) — [Docker Bake at DevFest Toulouse](https://www.youtube.com/watch?v=iC5ovhVhaLI&list=PLuZ_sYdawLiVt43B2CU1Cm1GVcVApPAlN&index=18&t=7s)
 - Talk recording (French) — [Docker Bake at Cloud Native Days France](https://youtu.be/WVWzwRLinzc)
 - English video version (coming soon) — [my YouTube channel](https://www.youtube.com/channel/UCPnHZ14R5oF8LQAc7f4mKNg/?sub_confirmation=1)
 - Talk venues — DevLille, DevFest Toulouse, DevFest Lyon, Devoxx Morocco, Cloud Native Days France
@@ -489,3 +491,4 @@ If Part 1 made you want to throw away your bash scripts, I hope Part 2 made you 
 - [YouTube](https://www.youtube.com/channel/UCPnHZ14R5oF8LQAc7f4mKNg/?sub_confirmation=1)
 - LinkedIn — *add link*
 - Medium — *add link*
+- Dev.to — *add link*

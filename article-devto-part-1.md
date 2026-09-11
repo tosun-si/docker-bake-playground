@@ -1,4 +1,12 @@
-# Docker Bake in Practice — Part 1: From Bash Scripts to Declarative Builds
+---
+title: "Docker Bake in Practice — Part 1: From Bash Scripts to Declarative Builds"
+published: false
+description: "Replace your 200-line bash build scripts with a single declarative Docker Bake file: parallel builds, shared variables, validators, inheritance, matrices, and Compose as Bake input."
+tags: docker, dockerbake, devops, tutorial
+cover_image: https://raw.githubusercontent.com/tosun-si/docker-bake-playground/main/diagrams/cover-devto-part-1.jpg
+canonical_url: https://medium.com/google-cloud/docker-bake-in-practice-part-1-from-bash-scripts-to-declarative-builds-bdb3bde0803f
+series: Docker Bake in Practice
+---
 
 *The first of a two-part series. Part 1 covers the fundamentals: what Bake is, why it exists, and the features that make it worth adopting. Part 2 will cover CI/CD integrations — Cloud Build, GitHub Actions, GitLab CI, and Dagger.*
 
@@ -10,7 +18,9 @@ For the past two years I've been giving a talk about Docker Bake at conferences 
 
 If you want the video version in French, you can watch the [Cloud Native Days France recording](https://youtu.be/WVWzwRLinzc). An English video walking through these articles is coming soon on my [YouTube channel](https://www.youtube.com/channel/UCPnHZ14R5oF8LQAc7f4mKNg/?sub_confirmation=1) — subscribe if you'd like to be notified. If you prefer to read at your own pace, with copy-pasteable snippets, this article is for you.
 
-All the code in this article comes from my companion repository: [`docker-bake-playground`](https://github.com/tosun-si/docker-bake-playground). Each section links to the relevant file so you can run the examples yourself.
+All the code in this article comes from my companion repository — each section links to the relevant file so you can run the examples yourself.
+
+{% embed https://github.com/tosun-si/docker-bake-playground %}
 
 *The code examples push to Google Cloud Artifact Registry, but Docker Bake is registry-agnostic — every snippet works against Docker Hub, ECR, ACR, or GHCR by changing the target tag.*
 
@@ -43,7 +53,7 @@ That's the whole stack. You won't lose anything by treating BuildKit as "the eng
 
 A practical note on what you actually have installed: if you've installed **Docker Desktop** in the last few years, Buildx ships by default — and Buildx bundles BuildKit, so the engine comes with it. Bake is a subcommand of Buildx (`docker buildx bake`), which means the moment you have Buildx, you have Bake too. On Linux with Docker Engine 23+, Buildx is bundled as a CLI plugin out of the box as well. There's nothing extra to install — unless your Docker is unusually old, you can run every example in this article today.
 
-![A whale diving in, ready to build](diagrams/whales/whale-diving-in.png)
+<!-- TODO dev.to: upload `whale-diving-in.png` with the editor's image button, then replace this comment by the returned markdown. Alt: A whale diving in, ready to build -->
 
 ---
 
@@ -111,7 +121,7 @@ The OS-portability problem gets worse here too. `declare -A` (associative arrays
 
 This is the moment Bake earns its place.
 
-![A whale carrying a Bake file — relief incoming](diagrams/whales/whale-bake-arrives.png)
+<!-- TODO dev.to: upload `whale-bake-arrives.png` with the editor's image button, then replace this comment by the returned markdown. Alt: A whale carrying a Bake file — relief incoming -->
 
 ---
 
@@ -589,7 +599,7 @@ We've covered a lot of ground:
 
 If you've been writing bash scripts to coordinate `docker build` calls, you now have everything you need to throw them away.
 
-![A whale waving — see you in Part 2](diagrams/whales/whale-see-you-part-2.png)
+<!-- TODO dev.to: upload `whale-see-you-part-2.png` with the editor's image button, then replace this comment by the returned markdown. Alt: A whale waving — see you in Part 2 -->
 
 ### Coming in Part 2
 
@@ -606,6 +616,8 @@ Part 2 will focus on **Bake in CI/CD**, which is where the parallelism, declarat
 - Talk recording (French) — [Docker Bake at DevLille](https://www.youtube.com/watch?v=NB7L3FNXcLs&t=5s)
 - Talk recording (French) — [Docker Bake at DevFest Toulouse](https://www.youtube.com/watch?v=iC5ovhVhaLI&list=PLuZ_sYdawLiVt43B2CU1Cm1GVcVApPAlN&index=18&t=7s)
 - Talk recording (French) — [Docker Bake at Cloud Native Days France](https://youtu.be/WVWzwRLinzc)
+
+{% embed https://youtu.be/WVWzwRLinzc %}
 - English video version (coming soon) — [my YouTube channel](https://www.youtube.com/channel/UCPnHZ14R5oF8LQAc7f4mKNg/?sub_confirmation=1)
 - Talk venues — DevLille, DevFest Toulouse, DevFest Lyon, Devoxx Morocco, Cloud Native Days France
 - Companion repository — [`docker-bake-playground`](https://github.com/tosun-si/docker-bake-playground)
